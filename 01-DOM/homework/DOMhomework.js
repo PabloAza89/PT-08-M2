@@ -16,13 +16,11 @@
 // 1) 'description' : debe ser igual a la descripción pasada como parámetro al constructor
 // 2) 'complete'    : debe setearse en false
 // Ayuda: usar 'this' en el constructor
-
 function ToDo (description) {
   // Tu código acá:
   this.description = description;
   this.complete = false;
 }
-
 
 // Agregar un método denominado 'completeToDo' al prototipo de la clase ToDo
 // No requiere ningún argumento
@@ -50,10 +48,15 @@ ToDo.prototype.completeToDo = function() {
 //    7) Agregar 'toDoText' como hijo de 'toDoShell'
 //    8) Devolver la variable toDoShell
 
-
 function buildToDo(todo, index) {
   // Tu código acá:
 
+  function toDoShell(todo){
+    <div></div>;
+    let toDoText = <span id={index}></span>;
+  }
+
+  return toDoShell
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
