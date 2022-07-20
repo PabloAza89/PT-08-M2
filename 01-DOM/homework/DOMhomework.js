@@ -54,8 +54,8 @@ ToDo.prototype.completeToDo = function() {
 function buildToDo(todo, index) {
   // Tu código acá:
   //let toDoText = <span id='index'></span>
-  todo.innerHTML = this.description;
-  function toDoShell() {
+  //todo.innerHTML = this.description;
+  let toDoShell() {
     //let toDoShell = <div></div>;
   }
 
