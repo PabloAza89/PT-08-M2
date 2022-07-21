@@ -6,7 +6,7 @@
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
-  var e = document.querySelector('#createdBy');
+  let e = document.querySelector('#createdBy');
   e.innerHTML += ' Juan Pablo.'
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
@@ -48,22 +48,19 @@ ToDo.prototype.completeToDo = function() {
 //    7) Agregar 'toDoText' como hijo de 'toDoShell'
 //    8) Devolver la variable toDoShell
 
-// let todo = new ToDo()
-// let index = 0;
-
 function buildToDo(todo, index) {
   // Tu código acá:
   let toDoShell = document.createElement('div');
   toDoShell.className = 'toDoShell';
-  var toDoText = document.createElement('span');
+  let toDoText = document.createElement('span');
   toDoText.innerHTML = todo.description;
   toDoText.id = index;
 
   if (todo.complete) {
     toDoText.className = 'completeText';
   }
-
-  document.appendChild(toDoText)
+    
+  toDoShell.appendChild(toDoText)
   toDoText.addEventListener('click', completeToDo);
 
   return toDoShell;
