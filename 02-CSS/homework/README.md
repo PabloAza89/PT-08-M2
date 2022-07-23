@@ -26,7 +26,7 @@ A partir de una paǵina que simula una noticia sobre _Música 8D_ es necesario t
 
 * Desde la carpeta del proyecto `responsive-web` ejecutar el siguiente comando: `npm run less`. Esto va a hacer que quede un watcher corriendo de fondo esperando por los cambios que efectuen en el archivo `index.less` para compilarlo a codigo CSS y almacenarlo en el archivo `index.css`.
 
-* Verificar que el compilador esté funcionando correctamente, para ello colocar la propiedad `background-color` del elemento `html` a `red` en el archivo `index.less` que se encuentra dentro de la carpeta `less`. Si actualizamos ahora la página, el fondo debería haberse cambiado a rojo
+* Verificar que el compilador esté funcionando correctamente, para ello colocar la propiedad ` del elemento `html` a `red` en el archivo `index.less` que se encuentra dentro de la carpeta `less`. Si actualizamos ahora la página, el fondo debería haberse cambiado a rojo
 
 * Si lo conseguiste, ahora borra el estilo recién creado para continuar con la tarea
 
@@ -43,6 +43,14 @@ A partir de una paǵina que simula una noticia sobre _Música 8D_ es necesario t
 6.footer.less
 7.home-page.less
 ```
+
+@import variables.less;
+@import mixins.less;
+@import reset.less;
+@import global.less;
+@import navigation.less;
+@import footer.less;
+@import home-page.less;
 
 *Si ves cambios en el estilo de la página es porque las importaciones fueron exitosas*
 
