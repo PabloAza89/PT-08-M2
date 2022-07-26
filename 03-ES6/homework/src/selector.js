@@ -5,19 +5,25 @@ var traverseDomAndCollectElements = function(matchFunc, startEl) {
     startEl = document.body;
   }
 
-  // recorre el árbol del DOM y recolecta elementos que matchien en resultSet
+  // recorre el árbol del DOM y recolecta elementos que matcheen en resultSet
   // usa matchFunc para identificar elementos que matchien
-
   // TU CÓDIGO AQUÍ
+  // var selector = startEl;
+//   var matchFunc = function (startEl) {
+//     return el.tagName && (startEl.tagName.toLowerCase() === selector.toLowerCase());
+// };
   
 };
 
+var selectorTypeMatcher = function(selector) {
 // Detecta y devuelve el tipo de selector
 // devuelve uno de estos tipos: id, class, tag.class, tag
-
-
-var selectorTypeMatcher = function(selector) {
-  // tu código aquí
+// tu código aquí
+  if (typeof selector !== 'string') return false;
+  if (selector[0] === '#') return `id`;
+  if (selector[0] === '.') return `class`;
+  if (selector.slice(1).includes('.')) return `tag.class`;
+  else return `tag`;
   
 };
 
@@ -29,14 +35,14 @@ var selectorTypeMatcher = function(selector) {
 var matchFunctionMaker = function(selector) {
   var selectorType = selectorTypeMatcher(selector);
   var matchFunction;
-  if (selectorType === "id") { 
-   
+  if (selectorType === "id") {
+    matchFunction = true;
   } else if (selectorType === "class") {
-    
+    matchFunction = true;
   } else if (selectorType === "tag.class") {
-    
+    matchFunction = true;
   } else if (selectorType === "tag") {
-    
+    matchFunction = true;
   }
   return matchFunction;
 };
