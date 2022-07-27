@@ -1,19 +1,19 @@
-var traverseDomAndCollectElements = function(matchFunc, startEl) {
-  var resultSet = [];
+// var traverseDomAndCollectElements = function(matchFunc, startEl) {
+//   var resultSet = [];
 
-  if (typeof startEl === "undefined") {
-    startEl = document.body;
-  }
+//   if (typeof startEl === "undefined") {
+//     startEl = document.body;
+//   }
 
-  // recorre el árbol del DOM y recolecta elementos que matcheen en resultSet
-  // usa matchFunc para identificar elementos que matchien
-  // TU CÓDIGO AQUÍ
-  // var selector = startEl;
-//   var matchFunc = function (startEl) {
-//     return el.tagName && (startEl.tagName.toLowerCase() === selector.toLowerCase());
-// };
+//   // recorre el árbol del DOM y recolecta elementos que matcheen en resultSet
+//   // usa matchFunc para identificar elementos que matchien
+//   // TU CÓDIGO AQUÍ
+//   // var selector = startEl;
+// //   var matchFunc = function (startEl) {
+// //     return el.tagName && (startEl.tagName.toLowerCase() === selector.toLowerCase());
+// // };
   
-};
+// };
 
 var selectorTypeMatcher = function(selector) {
 // Detecta y devuelve el tipo de selector
@@ -24,7 +24,6 @@ var selectorTypeMatcher = function(selector) {
   if (selector[0] === '.') return `class`;
   if (selector.slice(1).includes('.')) return `tag.class`;
   else return `tag`;
-  
 };
 
 // NOTA SOBRE LA FUNCIÓN MATCH
@@ -36,14 +35,21 @@ var matchFunctionMaker = function(selector) {
   var selectorType = selectorTypeMatcher(selector);
   var matchFunction;
   if (selectorType === "id") {
-    if ()
-  } if (selectorType === "class") {
-    return false;
-  } if (selectorType === "tag.class") {
-    return false;
-  } if (selectorType === "tag") {
-    return false;
+    matchFunction = function (el) {
+      return el.tagName && (el.tagName.toLowerCase() === "id".toLowerCase());
+    };
+      
   }
+
+  // else if (selectorType === "class") {GIS
+  //   matchFunction = 
+  // } 
+  // else if (selectorType === "tag.class") {
+  //   matchFunction = 
+  // } 
+  // else if (selectorType === "tag") {
+  //   matchFunction = 
+  // }
   return matchFunction;
 };
 
