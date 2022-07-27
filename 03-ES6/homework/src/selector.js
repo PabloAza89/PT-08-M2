@@ -36,13 +36,13 @@ var matchFunctionMaker = function(selector) {
   var selectorType = selectorTypeMatcher(selector);
   var matchFunction;
   if (selectorType === "id") {
-    matchFunction = true;
-  } else if (selectorType === "class") {
-    matchFunction = true;
-  } else if (selectorType === "tag.class") {
-    matchFunction = true;
-  } else if (selectorType === "tag") {
-    matchFunction = true;
+    if ()
+  } if (selectorType === "class") {
+    return false;
+  } if (selectorType === "tag.class") {
+    return false;
+  } if (selectorType === "tag") {
+    return false;
   }
   return matchFunction;
 };
