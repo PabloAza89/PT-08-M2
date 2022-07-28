@@ -1,19 +1,15 @@
-// var traverseDomAndCollectElements = function(matchFunc, startEl) {
-//   var resultSet = [];
+var traverseDomAndCollectElements = function(matchFunc, startEl) {
+  var resultSet = [];
 
-//   if (typeof startEl === "undefined") {
-//     startEl = document.body;
-//   }
+  if (typeof startEl === "undefined") {
+    startEl = document.body;
+  }
 
-//   // recorre el árbol del DOM y recolecta elementos que matcheen en resultSet
-//   // usa matchFunc para identificar elementos que matchien
-//   // TU CÓDIGO AQUÍ
-//   // var selector = startEl;
-// //   var matchFunc = function (startEl) {
-// //     return el.tagName && (startEl.tagName.toLowerCase() === selector.toLowerCase());
-// // };
+  // recorre el árbol del DOM y recolecta elementos que matcheen en resultSet
+  // usa matchFunc para identificar elementos que matchien
+  // TU CÓDIGO AQUÍ
   
-// };
+};
 
 var selectorTypeMatcher = function(selector) {
 // Detecta y devuelve el tipo de selector
@@ -36,20 +32,29 @@ var matchFunctionMaker = function(selector) {
   var matchFunction;
   if (selectorType === "id") {
     matchFunction = function (el) {
-      return el.tagName && (el.tagName.toLowerCase() === "id".toLowerCase());
+      if (`#${el.id}` === selector) return true;
+      return false;
     };
-      
-  }
-
-  // else if (selectorType === "class") {GIS
-  //   matchFunction = 
-  // } 
-  // else if (selectorType === "tag.class") {
-  //   matchFunction = 
-  // } 
-  // else if (selectorType === "tag") {
-  //   matchFunction = 
-  // }
+  } else if (selectorType === "class") {
+    matchFunction = function(el) {
+        if (el.classList.contains(selector.slice(1))) return true;
+        return false;
+    };
+  }  else if (selectorType === "tag") {
+    matchFunction = function (el) {
+      if (el.tagName.toLowerCase() === selector) return true;
+      return false;
+    }
+  } else if (selectorType === "tag.class") {
+    matchFunction = function (el) {
+      const arr = el.classList;
+      var [tagBuscado, classBuscado] = selector.split(".");
+      for (let i = 0 ; i < arr.length ; i++) {
+        if (tagBuscado + '.' + classBuscado === el.tagName.toLowerCase() + "." + el.classList[i]) return true;
+        return false;
+      }
+    }
+  }  
   return matchFunction;
 };
 
