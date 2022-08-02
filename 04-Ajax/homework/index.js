@@ -17,9 +17,21 @@ $('#search').click(function(){
 });
 
 $('#delete').click(function(){
+    let array = [];
+    var arr = [];
     let toSearch = document.getElementById('inputDelete').value
+   
+    $.get('http://localhost:5000/amigos/', function(data){
+        arr = [JSON.stringify(data[i])]
+        
+        // for (let i = 0 ; i < data.length ; i++) {
+        //     array.push(data[i])
+        // }
+    });
     $.ajax("http://localhost:5000/amigos/" + toSearch++, {type:'DELETE'});
     let showMessage = document.getElementById('success');
     //showMessage.innerHTML = "  " + $.get('http://localhost:5000/amigos/3').name;
-    showMessage.innerHTML = "  " + `Amigo eliminado con éxito`;
+    //showMessage.innerHTML = "  " + `Amigo eliminado con éxito`;
+    console.log(arr)
+    showMessage.innerHTML = arr
 });
