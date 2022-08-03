@@ -1,11 +1,15 @@
-const {
-  whiteboard,
-} = require('./whiteboard.js');
+var whiteboard = require('./whiteboard.js');
+//var asd = require('../node_modules/socket.io/client-dist/socket.io.js');
+//var io = require('socket.io-client');
+var socket = window.io(window.location.origin);
+//var io = require('socket.io-client');
+//window.io = io;
+
+
 
 //var whiteboard = window.whiteboard;
 //var socket = window.io(window.location.origin);
-whiteboard = window.whiteboard;
-socket = window.io(window.location.origin);
+
 
 socket.on('connect', function () {
   console.log('Connected!');

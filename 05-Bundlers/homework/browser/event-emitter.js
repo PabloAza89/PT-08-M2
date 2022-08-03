@@ -1,9 +1,9 @@
-module.exports = {
-  EventEmitter,
-}
+
 
   //window.EventEmitter = EventEmitter;
   window.EventEmitter = EventEmitter;
+  //var toExport = window.EventEmitter;
+  
 
   // our EventEmitter constructor function
   function EventEmitter () {
@@ -45,3 +45,7 @@ module.exports = {
     });
 
   };
+
+  module.exports = {
+    EventEmitter
+  }
