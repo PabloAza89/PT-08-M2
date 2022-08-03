@@ -44,7 +44,7 @@ EventEmitter.prototype.emit = function (eventName) {
 };
 
 module.exports = {
-  EventEmitter
+  EventEmitter,
 }
 
 /* })(); */
