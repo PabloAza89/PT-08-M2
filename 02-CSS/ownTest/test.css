@@ -1,5 +1,7 @@
 /* TEXT HELPERS */
 
+
+
 .textFormat {
     font-weight: bold;
     font-family: monospace;    
@@ -13,28 +15,20 @@ body {
     background-color: grey;
     height: 100vh;
     width: 100vw;
-    margin: 0vh;
-}
-
-#search {
-    display: flex;
-    position: absolute;
-    top: 10vh;
-    right: 2vh;
-    width: 15vw;
+    margin: 0%;
 }
 
 #mainTopContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     justify-content: center;
-    height: 13vh;
+    height: 50%;
     background-color: lightblue;
     margin-top: 1vh;
     margin-left: 1vh;
     margin-right: 1vh;
-    font-size: 3vh;
+    font-size: 30px;
     
 }
 
@@ -46,8 +40,49 @@ body {
     margin-left: 1vh;
     margin-right: 1vh;
     margin-bottom: 1vh;
-    height: 85vh;
+    height: 100%;
 }
+
+#searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-self:flex-end;
+    /* position: absolute; */
+    background-color: azure;
+    top: 9vh;
+    right: 1.5vw;
+    height: 20px;
+    width: 23vw;
+
+}
+
+#search {
+    display: flex;
+    border-width: 0.4vh;
+    border-style:solid;
+    background-color: lightgreen;
+    width: 25vw;
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(0, 0, 255, 0.484);
+    font-family: monospace;
+    font-size: 13px;
+}
+
+#searchButton {
+    width: 2vw;
+    border-radius: 0vh;
+    border-width: 0vh;
+    background-color: lightgreen;
+    border-width: 3vh;
+    border-color: aqua;
+    
+}
+
+
 
 #rightContainer {
     background-color: rgb(0, 0, 255);
@@ -77,19 +112,21 @@ nav {
     flex-direction: column;
     background-color: red;
     text-align: center;
+    
 }
 
-@keyframes navText {
+@keyframes navTextAnimation {
     0% {color:rgb(86, 193, 175);}
     50% {color: rgb(0, 130, 173);}
     100% {color: rgb(86, 193, 175);}
 }
 
 #navFont {
-    font-size: 200%;
+    margin-top: 1vh;
+    font-size: 28px;
     font-weight: bold;
     font-family: monospace;
-    animation-name: navText;
+    animation-name: navTextAnimation;
     animation-duration: 10s;
     animation-iteration-count: infinite;
 }
@@ -97,16 +134,17 @@ nav {
 #rightTop {    
     display: flex;
     flex-direction: column;
+    text-align: center;
     height: 47vh;
     background-color: rgba(255, 0, 0, 0.608);
-    font-size: 3vh;
+    font-size: 25px;
     
 }
 
 #rightBottom {
     display: flex;
     flex-direction: column;
-    font-size: 3vh;
+    font-size: 25px;
     height: 38vh;
     background-color: aqua;
 }
