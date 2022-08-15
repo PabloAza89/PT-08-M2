@@ -1,0 +1,30 @@
+obj = {
+  coord: { lon: -0.1257, lat: 51.5085 },
+  weather: [
+    { id: 804, main: "Clouds", description: "overcast clouds", icon: "04n" },
+  ],
+  base: "stations",
+  main: {
+    temp: 20.36,
+    feels_like: 19.86,
+    temp_min: 16.31,
+    temp_max: 22.83,
+    pressure: 1002,
+    humidity: 54,
+  },
+  visibility: 10000,
+  wind: { speed: 2.57, deg: 220 },
+  clouds: { all: 100 },
+  dt: 1660528005,
+  sys: {
+    type: 2,
+    id: 2075535,
+    country: "GB",
+    sunrise: 1660538751,
+    sunset: 1660591466,
+  },
+  timezone: 3600,
+  id: 2643743,
+  name: "London",
+  cod: 200,
+};

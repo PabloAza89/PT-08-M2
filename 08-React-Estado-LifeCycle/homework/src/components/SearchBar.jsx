@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function SearchBar({onSearch}) {
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
-      onSearch("Cairns");
+      onSearch({onSearch});
     }}>
-      <input
-        type="text"
-        placeholder="Ciudad..."
-      />
+      <input type="text" placeholder="Ciudad..." />
       <input type="submit" value="Agregar" />
     </form>
   );

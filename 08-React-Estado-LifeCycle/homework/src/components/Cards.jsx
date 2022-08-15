@@ -1,6 +1,5 @@
 import React from 'react';
 import './Cards.css';
-
 import Card from './Card.jsx';
 
 export default function Cards({cities, onClose}) {
@@ -19,7 +18,8 @@ export default function Cards({cities, onClose}) {
     );
   } else {
     return(
-      <div>Sin ciudades</div>
+      <div>Sin ciudades
+      </div>
     )
   }
 }

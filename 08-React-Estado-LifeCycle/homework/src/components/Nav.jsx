@@ -6,17 +6,14 @@ import './Nav.css';
 function Nav({onSearch}) {
   return (
     <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src={Logo} width="30" height="30" class="d-inline-block align-top" alt=""></img>
-      Henry - Weather App 
-      
-      
-    </a>
+      <a class="navbar-brand" href="#">
+        <img src={Logo} width="30" height="30" class="d-inline-block align-top" alt=""></img>
+        Henry - Weather App 
+      </a>
       <div>
-       {SearchBar({onSearch})}
+        <SearchBar onSearch={onSearch}/>
       </div>
-  </nav>
-    
+    </nav>
   );
 };
 
