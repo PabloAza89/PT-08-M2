@@ -34,6 +34,7 @@ Vamos a tener que instalar `react-router-dom`. Para eso hacemos:
 
 ```shell
 npm install --save react-router-dom
+npm install --save react-router-dom@5.2.0 (el que va realmente)
 ```
 Cómo sabemos, lo primero que necesitamos es elegir un Wrapper.
 
