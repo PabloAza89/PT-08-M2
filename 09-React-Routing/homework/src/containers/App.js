@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
 import './App.css';
 import Nav from '../components/Nav.jsx';
 import Cards from '../components/Cards.jsx';
 import { Route } from 'react-router-dom';
+
 import About from '../components/About.jsx';
 import Ciudad from '../components/Ciudad.jsx';
 
@@ -52,22 +52,22 @@ function App() {
 
   return (
     <div className="App">
-      <Route
-        path='/'
-        render={() => <Nav onSearch={onSearch} />}
-      />
-      <Route
+      <Route path='/' render={() => <Nav onSearch={onSearch} />}/>
+      {/* '/' SE RENDERIZA EN TODAS */}
+      <Route exact path='/' render={() => <Cards cities={cities} onClose={onClose} />}/>
+      {/* exact path='/algo' renderiza SOLO cuanto está en ese path */}
+      
+      
+
+      {/* <Route
         path='/about'
         component={About}
       />
-      <hr /> 
-      <Route 
-        // path='/cities'
-        render={() => <Cards cities={cities} onClose={onClose} />}
-      />
-      <Route
+      <hr />  */}
+      
+      {/* <Route
         exact path='/ciudad/:ciudadId' render={({match}) => <Ciudad city={match.params.ciudadId} />}
-      />
+      /> */}
     </div>
   );
 }
