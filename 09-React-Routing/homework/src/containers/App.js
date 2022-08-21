@@ -3,9 +3,8 @@ import './App.css';
 import Nav from '../components/Nav.jsx';
 import Cards from '../components/Cards.jsx';
 import { Route } from 'react-router-dom';
-
 import About from '../components/About.jsx';
-import Ciudad from '../components/Ciudad.jsx';
+import City from '../components/City.jsx';
 
 const apiKey = '996c7f0e4e0b0953dddafed0a123ef9c&units=metric';
 
@@ -39,16 +38,18 @@ function App() {
         }
       });
   }
+
   function onFilter(ciudadId) {
     let ciudad = cities.filter(c => c.id === parseInt(ciudadId));
     if(ciudad.length > 0) {
         return ciudad[0];
     } else {
-        return null;
+        // return null;
+        return 'Ciudad no encontrada';
     }
   }
 
-  cities.filter(c => c.id === parseInt(match.params.ciudadId))
+  //cities.filter(c => c.id === parseInt(match.params.ciudadId))
 
   return (
     <div className="App">
@@ -56,18 +57,10 @@ function App() {
       {/* '/' SE RENDERIZA EN TODAS */}
       <Route exact path='/' render={() => <Cards cities={cities} onClose={onClose} />}/>
       {/* exact path='/algo' renderiza SOLO cuanto está en ese path */}
-      
-      
-
-      {/* <Route
-        path='/about'
-        component={About}
-      />
-      <hr />  */}
-      
-      {/* <Route
-        exact path='/ciudad/:ciudadId' render={({match}) => <Ciudad city={match.params.ciudadId} />}
-      /> */}
+      <Route exact path= '/about' component={About} />
+      <Route exact path='/city/:ciudadId'><City onFilter={onFilter}/></Route>
+      {/* <Route exact path = '/city/:ciudadId' render={({match}) => {<City city={onFilter(match.params.ciudadId)}/>}} /> */}
+      <hr />
     </div>
   );
 }

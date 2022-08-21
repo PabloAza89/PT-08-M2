@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-export default function About() {
-    return (
-      <div>
-        Hola        
-      </div>
-    );
-};
+function About() {
+  return (
+    <div>Esto es el 'About' y mostramos nuestro linkedIn con etiqueta a</div>
+  )
+}
+
+export default About
