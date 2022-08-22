@@ -1,48 +1,74 @@
-import React from 'react';
+import React from "react";
 
-/* export default function  Form() {
-  const [username, setUsername] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  console.log(username)
+export function validate(input) {
+  let error = {};
+  if (!input.username) {
+    error.username = "Username is required";
+  } else if (!/\S+@\S+\.\S+/.test(input.username)) {
+    error.username = "Username is invalid";
+  }
+
+  if (!input.password) {
+    error.password = "Password is required";
+  } else if (!/(?=.-*[0-9])/.test(input.password)) {
+    error.password = "Password is invalid";
+  }
+}
+
+export default function Form() {
+  let [input, setInput] = React.useState({
+    username: "",
+    password: "",
+  });
+
+  let [error, setError] = React.useState({});
+
+  const handleInputChange = (e) => {
+    // setInput({...input [e.target.name]: e.target.value});
+
+    setInput(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }))
+
+    let objError = validate({
+      ...input,
+      [e.target.name]: e.target.value,
+    })
+
+    setError(objError);
+  };
+
   return (
     <form>
       <div>
         <label>Username:</label>
-        <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} value={username}/>
+        <input
+          type={"text"}
+          name={"username"}
+          onChange={handleInputChange}
+          value={input.username}
+          className={error.username && 'danger'}
+        />
+        {
+          error.username && <p>{error.username}</p>
+        }
       </div>
       <div>
         <label>Password:</label>
-        <input type="text" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+        <input
+          type={"password"}
+          name={"password"}
+          onChange={handleInputChange}
+          value={input.password}
+          // className={error.password && 'danger'}
+        />
+        {
+          error.password && <p>{error.password}</p>
+        }
       </div>
-      <button type="submit">Submit</button>
+      <input type={"submit"} value={"Ingresar"} />
+      {/* <button type={"submit"}>Submit</button> */}
     </form>
-  )
-} */
-
-export default function  Form() {
-  const [input, setInput] = React.useState({
-    username: '',
-    password: '',
-  });
-
-  const handleInputChange = function(e) {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    });
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username:</label>
-        <input type="text" name="username" onChange={handleInputChange} value={username} />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="text" name="password" onChange={handleInputChange} value={password} />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  )
+  );
 }
