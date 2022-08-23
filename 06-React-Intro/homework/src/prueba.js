@@ -1,0 +1,1 @@
+arr.reduce( cb(acumulador, valorActual[, índice[, array]]) => [a + b, valorInicial] )
