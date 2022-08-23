@@ -1,7 +1,7 @@
 import React from "react";
 
-export function validate(input) {
-  let error = {};
+function validate(input) {
+  let error = {}
   if (!input.username) {
     error.username = "Username is required";
   } else if (!/\S+@\S+\.\S+/.test(input.username)) {
@@ -13,13 +13,16 @@ export function validate(input) {
   } else if (!/(?=.-*[0-9])/.test(input.password)) {
     error.password = "Password is invalid";
   }
+  return error;
 }
 
 export default function Form() {
-  let [input, setInput] = React.useState({
+  let initialState = {
     username: "",
     password: "",
-  });
+  };
+
+  let [input, setInput] = React.useState(initialState);
 
   let [error, setError] = React.useState({});
 
@@ -31,11 +34,7 @@ export default function Form() {
       [e.target.name]: e.target.value,
     }))
 
-    let objError = validate({
-      ...input,
-      [e.target.name]: e.target.value,
-    })
-
+    let objError = validate({...input, [e.target.name]: e.target.value})
     setError(objError);
   };
 
@@ -63,12 +62,13 @@ export default function Form() {
           value={input.password}
           // className={error.password && 'danger'}
         />
+        {/* <p style={{visibility: error.username ? 'visible' : hidden}}></p> */}
         {
           error.password && <p>{error.password}</p>
         }
       </div>
-      <input type={"submit"} value={"Ingresar"} />
-      {/* <button type={"submit"}>Submit</button> */}
+      {/* <input type={"submit"} value={"Ingresar"} /> */}
+      <button type={"submit"}>Submit</button>
     </form>
   );
 }
