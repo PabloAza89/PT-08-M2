@@ -38,11 +38,69 @@ export class Buscador extends Component {
           <button type="submit">BUSCAR</button>
         </form>
         <ul>
-         {/* Aqui tienes que escribir tu codigo para mostrar la lista de peliculas */}
+         {
+            this.props.movies && this.props.movies.map(movie => (
+              <div key='movie.imdbID'>
+                <Link to={`/movie/&{movie.imdbID}`}>
+                  {movie.Title}
+                </Link>
+              </div>
+            ))
+         }
         </ul>
       </div>
     );
   }
 }
 
-export default Buscador;
+function mapStateToProps(state) {
+  return {
+    movies: state.moviesLoaded
+  }
+
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getMovies: title => dispatch(getMovies(title))
+  }
+  
+}
+
+export default connect(mapStateToProps)(Buscador);
+
+// export default function Buscador({prop1, prop2}) {
+
+//   cons [title, setTtitle] = useState('')
+
+//   let handleChange = (e) => {
+//     setTitle(e.target.value);
+// }
+
+//   let handleSubmit = (e) => {
+//     e.preventDefault();
+//   }
+
+//   return (
+//     <div>
+//     <h2>Buscador</h2>
+//     <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
+//       <div>
+//         <label className="label" htmlFor="title">Película: </label>
+//         <input
+//           type="text"
+//           id="title"
+//           autoComplete="off"
+//           value={title}
+//           onChange={(e) => this.handleChange(e)}
+//         />
+//       </div>
+//       <button type="submit">BUSCAR</button>
+//     </form>
+//     <ul>
+//      {/* Aqui tienes que escribir tu codigo para mostrar la lista de peliculas */}
+//     </ul>
+//   </div>
+//   )
+
+// } 
